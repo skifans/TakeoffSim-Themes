@@ -14,6 +14,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/chosen/chosen.jquery.min.js"></script>
+    <link href="js/chosen/chosen.min.css" rel="stylesheet">
   </head>
   
   <body>
@@ -30,10 +32,10 @@
           <h3 class="text-primary">Airline
             <br>
           </h3>
-          <form role="form" action="create-airline-submit" method="GET">
+          <form role="form" action="create-ceo.html" method="POST">
             <div class="form-group" draggable="true">
-              <label class="control-label" for="input">Airline Name</label>
-              <input class="form-control" id="input" type="text"
+              <label class="control-label" for="name">Airline Name</label>
+              <input class="form-control" id="name" type="text"
               placeholder="eg. Delta Air Lines">
             </div>
             <div class="form-group">
@@ -48,8 +50,10 @@
             </div>
             <div class="form-group">
               <label class="control-label" for="hq">Hub and Headquarters:</label>
-              <select class="form-control" id="hq">{% for airport in airports %}
-                <option>{{airport.icao}} - {{ airport.name }}</option>{% endfor %}</select>
+              <select class="form-control airport-dropdown" id="hq">
+                {% for airport in airports %}
+                <option>{{airport.icao}} - {{ airport.name }}</option>
+                {% endfor %}</select>
             </div>
             <div class="form-group">
               <label class="control-label" for="region">Carrier Scope:</label>
@@ -92,5 +96,7 @@
       </div>
     </div>
   </body>
-
+  <script type="text/javascript">
+    $('.airport-dropdown').chosen({no_results_text:'Oops, nothing found!'});
+  </script>
 </html>
