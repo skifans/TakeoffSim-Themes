@@ -7,16 +7,28 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Results</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body>
-    <p>Dear {{ceoName}},</p>
-    <p>We have evaluated your proposal to start {{airlineName}}. While the airline industry is a very competitive field,
-    and a field we don't usually invest in, we've made an exception for you. In exchange for an 80% stake in the company,
-    we are investing ${{money.getAmountMajorInt}}. Spend it wisely.</p>
-    <p>As per your request you will be paid in stock, however, how much will be tied to your earnings in a given year</p>
-    <p>Signed,</p>
-    {% for investor in investors %}
-        <p>{{investor.name}}</p>
-    {% endfor %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+                <p>Dear {{ceoName}},</p>
+                <p>We have evaluated your proposal to start {{airlineName}}. While the airline industry is a very competitive field,
+                    and a field we don't usually invest in, we've made an exception for you. In exchange for an 80% stake in the company,
+                    we are investing ${{money.getAmountMajorInt}}. Spend it wisely.</p>
+                <p>As per your request you will be paid in stock, however, how much will be tied to your earnings in a given year</p>
+                <p>Signed,</p>
+                {% for investor in investors %}
+                <p>{{investor.name}}</p>
+                {% endfor %}
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
 </body>
 </html>

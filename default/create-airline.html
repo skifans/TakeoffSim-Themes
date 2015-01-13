@@ -33,32 +33,32 @@
           <h3 class="text-primary">Airline
             <br>
           </h3>
-          <form role="form" class="input-form" action="create-ceo.html" method="POST">
+          <form role="form" class="input-form" action="create-ceo.html" method="GET">
             <div class="form-group" draggable="true">
               <label class="control-label" for="name">Airline Name</label>
-              <input class="form-control" id="name" type="text"
+              <input class="form-control" name="name" id="name" type="text"
               placeholder="eg. Delta Air Lines" minlength="4" required>
             </div>
             <div class="form-group">
               <label class="control-label" for="icaocode">ICAO Code</label>
-              <input class="form-control" id="icaocode" type="text"
+              <input class="form-control" name="icaocode" id="icaocode" type="text"
               placeholder="DAL" maxlength="3" minlength="3" required>
             </div>
             <div class="form-group">
               <label class="control-label" for="iatacode">IATA Code</label>
-              <input class="form-control" id="iatacode" type="text"
+              <input class="form-control" name="iatacode" id="iatacode" type="text"
               placeholder="DL" maxlength="2" minlength="2" required>
             </div>
             <div class="form-group">
               <label class="control-label" for="hq">Hub and Headquarters:</label>
-              <select class="form-control airport-dropdown" id="hq">
+              <select class="form-control airport-dropdown" name="hq" id="hq">
                 {% for airport in airports %}
                 <option>{{airport.icao}} - {{ airport.name }}</option>
                 {% endfor %}</select>
             </div>
             <div class="form-group">
               <label class="control-label" for="region">Carrier Scope:</label>
-              <select class="form-control scope-dropdown" id="region">
+              <select class="form-control scope-dropdown" name="region" id="region">
                 <option>International</option>
                 <option>Continental</option>
                 <option>Domestic</option>
@@ -67,7 +67,7 @@
             </div>
             <div class="form-group">
               <label class="control-label" for="style">Carrier Type:</label>
-              <select class="form-control type-dropdown" id="style">
+              <select class="form-control type-dropdown" name="style" id="style">
                 <option>Luxury</option>
                 <option>Legacy</option>
                 <option>Hybrid</option>
