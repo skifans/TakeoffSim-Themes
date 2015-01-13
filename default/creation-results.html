@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) Erik Partridge 2015. All rights reserved, program is for TakeoffSim.com
+  -->
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Results</title>
+</head>
+<body>
+    <p>Dear {{ceoName}},</p>
+    <p>We have evaluated your proposal to start {{airlineName}}. While the airline industry is a very competitive field,
+    and a field we don't usually invest in, we've made an exception for you. In exchange for an 80% stake in the company,
+    we are investing ${{money.getAmountMajorInt}}. Spend it wisely.</p>
+    <p>As per your request you will be paid in stock, however, how much will be tied to your earnings in a given year</p>
+    <p>Signed,</p>
+    {% for investor in investors %}
+        <p>{{investor.name}}</p>
+    {% endfor %}
+</body>
+</html>
