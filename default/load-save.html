@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+
+<!--
+  ~ Copyright (c) Erik Partridge 2015. All rights reserved, program is for TakeoffSim.com
+  -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Load saved sim</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <form role="form" class="input-form" action="load-landing.html" method="GET">
+                        <div class="form-group">
+                            <label class="control-label" for="world">World:</label>
+                            <select class="form-control world-dropdown" name="world" id="world">
+                                {% for world in worldlist %}
+                                <option>{{world}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </form>
+                    <input type="submit" value="Submit" class="btn btn-submit btn-primary">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
