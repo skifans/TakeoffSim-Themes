@@ -10,28 +10,36 @@
     <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
     <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
     <script type="text/javascript" src="../resources/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../resources/js/chosen/chosen.jquery.min.js"></script>
-    <script type="text/javascript" src="../resources/js/kartograph.min.js"></script>
-    <script type="text/javascript" src="../resources/js/raphael-min.js"></script>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script type="text/javascript" src="../resources/js/arc.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div id="map"></div>
+                <div id="map" style="width: 96%; height: 85%;"></div>
             </div>
         </div>
+        <p>Welcome to {{airline.name}}'s route map. You can go to your airline's home page at any time by clicking below.</p>
+        <p><a href="/human/index">home</a></p>
     </div>
 </body>
 <script>
-    var map = kartograph.map("#map");
-    map.loadMap("../img/world.svg");
-    function pt(lon, lat) {
-        return new kartograph.LonLat(lon, lat);
-    }
-    {% for route in airline.routes %}
-        map.addGeoPath([pt({{route.departs.longitude}},{{route.departs.latitude)),pt({{route.departs.longitude}},{{route.departs.latitude}})]);
-    {% endfor %}
-</script>
+    var map = L.map('map').setView([{{airline.headquarters.latitude}}, {{airline.headquarters.longitude}}], 5);
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+        '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        'Imagery © <a href="http://mapbox.com">Mapbox</a>'
+    }).addTo(map);
+    {% for r in airline.routes %}
+        var start = { x: r.departs.longitude, y : r.departs.latitude};
+        var end = { x: r.arrives.longitude, y : r.arrives.latitude };
+        var gen = new arc.GreatCircle(start, end, {"name": r.toString});
+        var line = generator.Arc(200,{offset:10});
+        L.geoJson.addTo(map);
+        {% endfor %}
 
+</script>
 </html>
