@@ -3,7 +3,7 @@
   ~ Copyright (c) Erik Partridge 2015. All rights reserved, program is for TakeoffSim.com
   -->
 
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head lang="en">
     <meta charset="UTF-8">
     <title>{{airline.name}}</title>
@@ -14,11 +14,11 @@
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script type="text/javascript" src="../resources/js/arc.js"></script>
 </head>
-<body>
+<body>{% if online %}
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div id="map" style="width: 96%; height: 85%;"></div>
+                <div id="map" style="width: 1200; height: 650px;"></div>
             </div>
         </div>
         <p>Welcome to {{airline.name}}'s route map. You can go to your airline's home page at any time by clicking below.</p>
@@ -42,4 +42,11 @@
         {% endfor %}
 
 </script>
+    {% else %}
+    <p><b>Unfortunately, the route-map is only available when connected to the internet</b></p>
+    <p>If you think this is an error, wait fifteen seconds and click refresh.</p>
+    <p><a href="/human/index">Return home</a></p>
+    <p><a href="/airline/view">Refresh</a></p>
+    </body>
+    {% endif %}
 </html>
