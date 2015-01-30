@@ -49,6 +49,9 @@
             <ul class="dropdown-menu" role="menu">
               <li>
                 <a href="/airline/view/{{Airline.icao}}">Route Map</a>
+                <a href="/human/gate-management">Gate Management</a>
+                <a href="/human/flights">Flight Overview</a>
+                <a href="/human/new-flight">New Flight</a>
               </li>
             </ul>
           </div>
@@ -58,11 +61,11 @@
             <a class="btn btn-lg btn-warning dropdown-toggle" data-toggle="dropdown"> Fleet <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li>
-                  <a href="#">Buy aircraft</a>
-                  <a href="#">Aircraft on order</a>
-                  <a href="#">Fleet Details</a>
-                  <a href="#">Maintenance</a>
-                  <a href="#"></a>
+                  <a href="/aircraft/purchase">Purchase New Aircraft</a>
+                  <a href="/aircraft/used">Used Aircraft</a>
+                  <a href="/aircraft/lease">Lease Aircraft</a>
+                  <a href="/human/fleet">Fleet Details</a>
+                  <a href="/human/maintainance">Maintenance</a>
               </li>
             </ul>
           </div>
@@ -72,7 +75,8 @@
             <a class="btn btn-lg btn-warning dropdown-toggle" data-toggle="dropdown"> Financials <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li>
-                <a href="#">Action</a>
+                <a href="/human/finances">Details</a>
+                <a href="/world/economy">Economy</a>
               </li>
             </ul>
           </div>
@@ -83,6 +87,9 @@
             <ul class="dropdown-menu" role="menu">
               <li>
                 <a href="/aircraft/list">Aircraft Types</a>
+                <a href="/airline/list">Airlines</a>
+                <a href="/manufacturers/list">Aircraft Manufacturers</a>
+                <a href="/airport/list">Airports</a>
               </li>
             </ul>
           </div>
@@ -113,7 +120,7 @@
               {% endif %}
               <ul>
               {% for sub in Airline.getSubsidiaries %}
-                <li><a href="http://localhost:40973/airline/view/{{sub.getIcao}}">{{sub.getName}}</a></li>
+                <li><a href="/airline/view/{{sub.getIcao}}">{{sub.getName}}</a></li>
               {% endfor %}
               </ul>
             </div>
