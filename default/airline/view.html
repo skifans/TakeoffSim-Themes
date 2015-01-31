@@ -30,7 +30,7 @@
         maxZoom: 18,
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
         '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-        'Imagery © <a href="http://mapbox.com">Mapbox</a>'
+        'Imagery &COPY; <a href="http://mapbox.com">Mapbox</a>'
     }).addTo(map);
     {% for r in airline.routes %}
         var start = { x: r.departs.longitude, y : r.departs.latitude};
@@ -39,7 +39,6 @@
         var line = generator.Arc(200,{offset:10});
         L.geoJson.addTo(map);
         {% endfor %}
-
 </script>
     {% else %}
     <p><b>Unfortunately, the route-map is only available when connected to the internet</b></p>
