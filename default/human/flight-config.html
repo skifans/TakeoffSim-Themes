@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) Erik Partridge 2015. All rights reserved, program is for TakeoffSim.com
+  -->
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Finishing Flight Preparation</title>
+    <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../resources/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../resources/js/chosen/chosen.jquery.min.js"></script>
+    <link href="../resources/js/chosen/chosen.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Finalizing Flight {{data.flightNumber}}</h1>
+            <hr>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <table>
+                    <tr><td>Departs:&nbsp;&nbsp;</td>|<td>&nbsp;{{data.depart.icao}}</td></tr>
+                    <tr><td>Arrives:&nbsp;&nbsp;</td>|<td>&nbsp;{{data.arrive.icao}}</td></tr>
+                    <p>{% if data.autoGates % }Gates will be billed to your account.{% else %}Make sure you have gates.{% endif %}</p>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <p>Operates</p>
+                <table>
+                    <tr><td>Monday:&nbsp;</td><td>{{data.operates[0]}}</td></tr>
+                    <tr><td>Tuesday:&nbsp;</td><td>{{data.operates[1]}}</td></tr>
+                    <tr><td>Wednesday:&nbsp;</td><td>{{data.operates[2]}}</td></tr>
+                    <tr><td>Thursday:&nbsp;</td><td>{{data.operates[3]}}</td></tr>
+                    <tr><td>Friday:&nbsp;</td><td>{{data.operates[4]}}</td></tr>
+                    <tr><td>Saturday:&nbsp;</td><td>{{data.operates[5]}}</td></tr>
+                    <tr><td>Sunday:&nbsp;</td><td>{{data.operates[6]}}</td></tr>
+                </table>
+            </div>
+        </div>
+        <hr><br>
+        <div class="row">
+            <div class="col-md-6">
+                {{for acf in airline.aircraftList}}
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
