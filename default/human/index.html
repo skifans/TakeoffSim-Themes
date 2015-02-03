@@ -102,15 +102,15 @@
               <h3>Overview</h3>
               <p>{{Airline.getName}} is an airline based at {{Airline.getHeadquarters.name}}.</p>
               <p>Founded in 2015, {{Airline.getName}} operates a total of {{Airline.fleet.getSize}} aircraft, to {{Airline.numDestinations}} destinations around the world.</p>
-              <p>Under the leadership of {{Airline.ceo}}, {{Airline.getName}} has netted ${{Airline.getTotalProfit.getAmountMajorInt}}.</p>
+              <p>Under the leadership of {{Airline.ceo}}, {{Airline.getName}} has netted ${{Airline.getTotalProfit.getAmountMajorLong}}.</p>
             </div>
             <div class="col-md-6">
               <h3>Finances</h3>
               <p>{{Airline.getName}}'s financial vital signs are as follows.</p>
               <ul>
-                <li>Current cash on hand: ${{Airline.getCash.getAmountMajorInt}}</li>
-                <li>Total expenditures: ${{Airline.getPaid.getAmountMajorInt}}</li>
-                <li>Total valuation: ${{Airline.getValue.getAmountMajorInt}}</li>
+                <li>Current cash on hand: ${{Airline.getCash.getAmountMajorLong}}</li>
+                <li>Total expenditures: ${{Airline.getPaid.getAmountMajorLong}}</li>
+                <li>Total valuation: ${{Airline.getValue.getAmountMajorLong}}</li>
               </ul>
               {% if Airline.getSubsidiaries.size == 0 %}
               <h4>No subsidiaries</h4>
