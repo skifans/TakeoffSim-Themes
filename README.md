@@ -2,7 +2,8 @@
 All the themes TakeoffSim has in it's official repository. Want to add a theme? PR
 
 ##Details
-All themes contained in this repository are released under the GPL v2
+All HTML files, or files otherwise not contained in the resources folder are released under the GPL v2.0
+###All files in /resources are released under their own respective licenses, and are labeled as such.
 
 TakeoffSim uses Pebble internally. You can read more about Pebble's specification here: http://www.mitchellbosecke.com/pebble/documentation
 
