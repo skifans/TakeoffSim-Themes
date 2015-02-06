@@ -6,7 +6,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>List of All Aircraft</title>
+    <title>Takeoffsim</title>
     <link href="../resources/css/table.css" type="text/css" rel="stylesheet">
     <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
     <script type="text/javascript" src="../resources/js/jquery.min.js"></script>
@@ -14,12 +14,24 @@
 </head>
 <body>
     <div class="container">
-        <table>
-            <tr><th>Name</th><th>ICAO</th><th>Manufacturer</th><th>List Price</th></tr>
-            {% for t in aircraft %}
-            <tr><td><a href="/aircraft/overview/{{t.icao}}">t.name</a></td><td><a href="/aircraft/overview/{{t.icao}}">t.icao</a></td><td><a href="/manufacturer/{{t.manufacturer.name}}">t.manufacturer.name</a></td><td>${{t.price.getAmountMajorInt}}</td></tr>
+        <div class="row">
+          {% for a in aircraftTypes%}
+          <div class="thumbnail">
+            <img src="../resources/img/aircraft/{{a.icao}}" alt="{{a.name}}">
+            <div class="caption">
+              <h3>{{a.name}}</h3>
+              <ul>
+                  <li>Range: {{a.getRange}}</li>
+                  <li>Seats: {{a.maxEconomySeats}}</li>
+                  <li>Departure Runway Length: {{a.departureRunway}}ft</li>
+                  <li>Landing Runway Length: {{a.arrivalRunway}}ft</li>
+                  <li>Hourly Fuel Burn: &#126;{{a.fuelBurn}}</li>
+              </ul>
+              <p><a href="/types/{{a.icao}}" class="btn btn-primary">More</a>&nbsp;<a href="/types/shop/{{a.icao}}" class="btn btn-default">Shop</a></p>
+            </div>
+          </div>
             {% endfor %}
-        </table>
+        </div>
         <p><a href="/human/index">Home</a></p>
     </div>
 </body>

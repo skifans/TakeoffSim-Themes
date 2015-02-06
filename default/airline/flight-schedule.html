@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="container">
-        <table>
+        <table class="table">
             <tr><th>Departs:</th><th>Arrives:</th><th>Aircraft:</th><th>Departure Time</th><th>Arrival Time</th></tr>
             {% for flight in flights % }
             <tr><td><a href="/airport/view/{{flight.route.departs.icao}}">{{flight.route.departs.icao}}</a></td>
@@ -22,6 +22,7 @@
                 <td><a href="/airplanes/view/{{flight.aircraft.registration}}">{{flight.aircraft.registration}}</a></td>
                 <td>{{flight.departsGmt}}</td><td>{{flight.arrivesGmt}}</td>
             </tr>
+            {% endfor %}
         </table>
     </div>
 </body>

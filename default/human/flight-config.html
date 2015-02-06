@@ -21,7 +21,7 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <table>
+                <table class="table">
                     <tr><td>Departs:&nbsp;&nbsp;</td>|<td>&nbsp;{{data.depart.icao}}</td></tr>
                     <tr><td>Arrives:&nbsp;&nbsp;</td>|<td>&nbsp;{{data.arrive.icao}}</td></tr>
                     <p>{% if data.autoGates % }Gates will be billed to your account.{% else %}Make sure you have gates.{% endif %}</p>
@@ -29,7 +29,7 @@
             </div>
             <div class="col-md-6">
                 <p>Operates</p>
-                <table>
+                <table class="table">
                     <tr><td>Monday:&nbsp;</td><td>{{data.operates[0]}}</td></tr>
                     <tr><td>Tuesday:&nbsp;</td><td>{{data.operates[1]}}</td></tr>
                     <tr><td>Wednesday:&nbsp;</td><td>{{data.operates[2]}}</td></tr>
@@ -44,7 +44,6 @@
         <div class="row">
             <div class="col-md-6">
                 {{for acf in airline.aircraftList}}
-
             </div>
         </div>
     </div>

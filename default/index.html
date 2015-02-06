@@ -7,7 +7,7 @@
   
   <head>
     <meta charset="utf-8">
-    <title>Welcome to TakeoffSim</title>
+    <title>Takeoffsim</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -21,11 +21,11 @@
         <h1>Takeoff Simulation
           <br>
         </h1>
-        <p>Version 0.7-alpha, (c) Erik Partridge, 2015
+        <p>Version 0.7.2, (c) Erik Partridge, 2015
           <br>
         </p>
         <p class="text-success">
-          <a class="btn btn-primary btn-large" href="http://takeoffsim.com">Website</a>
+          <a class="btn btn-primary btn-large" id="website" href="#">Website</a>
         </p>
         <p class="text-success">
           <a class="" href="global-settings.html">Settings</a>
@@ -40,4 +40,10 @@
       <a class="btn btn-large btn-lg btn-success btn-success" href="/loading/saves.html">Load Simulation</a>
     </div>
   </body>
+  <script>
+    $("#website ").click(function(){
+      var gui = require('nw.gui');
+      gui.Shell.openExternal('https://takeoffsim.com');
+    });
+  </script>
 </html>
