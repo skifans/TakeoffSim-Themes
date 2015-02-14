@@ -14,24 +14,26 @@
 <body>
     <div class="container">
         <div class="row">
-          {% for a in aircraftTypes%}
-          <div class="thumbnail">
-            <img src="../../resources/img/aircraft/{{a.icao}}" alt="{{a.name}}">
-            <div class="caption">
-              <h3>{{a.name}}</h3>
-              <ul>
-                  <li>Range: {{a.getRange}}</li>
-                  <li>Seats: {{a.maxEconomySeats}}</li>
-                  <li>Departure Runway Length: {{a.departureRunway}}ft</li>
-                  <li>Landing Runway Length: {{a.arrivalRunway}}ft</li>
-                  <li>Hourly Fuel Burn: &#126;{{a.fuelBurn}}</li>
-              </ul>
-              <p><a href="/types/{{a.icao}}" class="btn btn-primary">More</a>&nbsp;<a href="/types/shop/{{a.icao}}" class="btn btn-default">Shop</a></p>
+            {% for a in types%}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img height="180px" src="../../resources/img/aircraft/{{a.icao}}.jpg" alt="{{a.name}}">
+                    <div class="caption">
+                        <h3>{{a.name}}</h3>
+                        <ul>
+                            <li>Range: {{a.getRange}}nm</li>
+                            <li>Max No. Seats: {{a.maxEconomySeats}}</li>
+                            <li>Cargo Capacity: {{a.cargoCapacity}}cu. ft.</li>
+                            <li>Departure Runway Length: {{a.departureRunway}}ft</li>
+                            <li>Hourly Fuel Burn: &#126;{{a.fuelBurn}}lbs</li>
+                        </ul>
+                        <p><a href="/types/{{a.icao}}" class="btn btn-primary">More</a>&nbsp;<a href="/types/shop/{{a.icao}}" class="btn btn-default">Shop</a></p>
+                    </div>
+                </div>
             </div>
-          </div>
             {% endfor %}
         </div>
-        <p><a href="/human/index">Home</a></p>
+        <a href="/human/index" style="align:right;"><img width="20px" src="/resources/img/home.svg" alt="home"></a>
     </div>
 </body>
 </html>
