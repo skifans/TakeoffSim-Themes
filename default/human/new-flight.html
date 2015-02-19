@@ -16,6 +16,7 @@
     <script type="text/javascript" src="../../resources/js/nv.d3.min.js"></script>
 </head>
 <body>
+    <form action="/human/create-new-flight" method="POST">
     <div class="container">
         <h1 style="margin-left: auto; margin-right:auto;">Creating a new route</h1>
         <div class="row">
@@ -90,11 +91,6 @@
                 </label>
             </div>
             <div class="col-md-3">
-                <p>Flight Number</p>
-                <div class="input-group-addon">{{airline.icao}}</div>
-                <input type="text" class="form-control" value="{{default}}" id="flightNumber" placeholder="1354" required>
-                <hr><br>
-                <button class="submit" value="submit" id="submit">Next!</button>
             </div>
         </div>
         <div class="container" id="hide2">
@@ -106,26 +102,31 @@
                             <option>{{t.icao}} - {{t.name}}</option>
                         {% endfor %}
                     </select>
+                    <button id="search">Search for matching aircraft</button>
                 </label>
                 <label for="plane">Airplane
                     <select id="plane">
-
                     </select>
                 </label>
             </div>
             <div class="col-md-6">
+                <p>Flight Number</p>
+                <div class="input-group-addon">{{airline.icao}}</div>
+                <input type="text" class="form-control" value="{{default}}" id="flightNumber" placeholder="1354" required>
             </div>
         </div>
     </div>
+        <button class="submit" value="submit" id="submit">Next!</button>
+    </form>
     <script>
         $('#loading').hide();
         $('#res').hide();
-        $('#hide2').hide();
         $('#plane').hide();
 
         $('#depart').chosen({no_results_text: 'Oops, no airport found!'});
         $('#arrive').chosen({no_results_text: 'Oops, no airport found!'});
-
+        $('#plane').chosen({no_results_text: 'No aircraft match your description'});
+        $('#type').chosen({no_results_text: 'No aircraft type found matching that description'});
         $("#researchGo").click(function() {
             $('#loading').show();
             $.ajax({
@@ -152,14 +153,16 @@
                 }
             });
         });
-    </script>
-    <script>
-        $("#submit").click(function(){
+        $("#search").click(function(){
+            $('#loading').show();
             $.ajax({
-                url: '/ajax/tempFlightData.json',
-                data: 'depart=' + $('#depart option:selected').text() + "&arrive=" + $("#arrive option:selected")
-                + '&flightNumber='
-            })
+                url : '/ajax/planesForType.json',
+                data: "depart=" + $("#depart option:selected").text() + "&arrive=" + $("#arrive option:selected").text() + "&type=" + $("#arrive option:selected").text(),
+                datatype: 'json',
+                success: function (data){
+
+                }
+            });
         });
     </script>
 </body>
