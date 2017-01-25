@@ -11,4 +11,4 @@ TakeoffSim uses Pebble internally. You can read more about Pebble's specificatio
 No trying to exploit this for security holes. TakeoffSim's GUI is robustly fortified, and trying to exploit the GUI will cause the program to crash, the theme to be deleted, and a flag reported to TakeoffSim.
 
 ##Requirements
-Any extra themes must implement validation. JavaScript is acceptable, and JavaScript can be assumed to be available. It may require an Internet connection, but that is not prefer red, and must be labeled as Internet only. Lastly, all data that gets sent via the default theme must also be sent from the custom theme, or the program will not run.
+Any extra themes must implement validation. JavaScript is acceptable, and JavaScript can be assumed to be available. It may require an Internet connection, but that is not preferred, and must be labeled as Internet only. Lastly, all data that gets sent via the default theme must also be sent from the custom theme, or the program will not run.
